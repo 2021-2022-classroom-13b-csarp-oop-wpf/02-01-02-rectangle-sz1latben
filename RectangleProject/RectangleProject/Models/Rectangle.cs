@@ -11,8 +11,15 @@ namespace RectangleProject.Models
 
         public Rectangle(double sideA, double sideB)
         {
-            this.sideA = sideA;
-            this.sideB = sideB;
+            if (this.sideA <= 0 || this.sideB <= 0)
+            {
+                throw new RectangleSideIsNullOrZero("Nulla vagy negatív oldaló téglalapot nem lehet létrehozni!");
+            }
+            else
+            {
+                this.sideA = sideA;
+                this.sideB = sideB;
+            }
         }
 
         public double SideA
@@ -23,7 +30,14 @@ namespace RectangleProject.Models
             }
             set
             {
-                this.sideA = value;
+                if (value <= 0)
+                {
+                    throw new RectangleSideIsNullOrZero("Nulla vagy negatív oldaló téglalapot nem lehet létrehozni!");
+                }
+                else
+                {
+                    this.sideA = value;
+                }
             }
         }
         public double SideB
@@ -34,7 +48,14 @@ namespace RectangleProject.Models
             }
             set
             {
-                this.sideB = value;
+                if (value <= 0)
+                {
+                    throw new RectangleSideIsNullOrZero("Nulla vagy negatív oldaló téglalapot nem lehet létrehozni!");
+                }
+                else
+                {
+                    this.sideB = value;
+                }
             }
         }
         public double Area
